@@ -17,14 +17,25 @@ const quotes = [
 	{ quote: "If you pour some music on whatever's wrong, it'll sure help out.", source: 'Levon Helm' },
 	{ quote: 'Everything is scary if you look at it. So you just got to live it.', source: 'Mary J. Blige' },
 	{ quote: 'Be yourself; everyone else is already taken.', source: 'Oscar Wilde' },
-	{ quote: 'The past has no power over the present moment.', source: 'Eckhart Tolle' },
+	{
+		quote: 'Ask not what your country can do for you, ask what you can do for your country.',
+		source: 'John F. Kennedy',
+		citation: "John F. Kennedy's Inaugural Address",
+		year: 'January 20, 1961',
+	},
+	{
+		quote: 'Everything good, everything magical happens between the months of June and August.',
+		source: 'Jenny Han',
+		citation: 'The Summer I Turned Pretty',
+	},
 ];
-
 /***
  * `getRandomQuote` function
  ***/
 const randomNumber = () => Math.floor(Math.random() * quotes.length); // not using the +1 syntax b/c using the floor()
 const getRandomQuote = () => quotes[randomNumber()];
+debugLog(getRandomQuote());
+
 /***
  * `printQuote` function
  ***/
