@@ -12,14 +12,19 @@ const debugLog = (data) => console.log(data); // debugging only, remove when don
 /***
  * `quotes` array
  ***/
-const quotes = [{ quote: 'test' }, { quote: 'test1' }, { quote: 'test2' }, { quote: 'test3' }, { quote: 'test4' }];
+const quotes = [
+	{ quote: 'I never really felt like a rock singer or a rock star or whatever', source: 'David Bowie' },
+	{ quote: "If you pour some music on whatever's wrong, it'll sure help out.", source: 'Levon Helm' },
+	{ quote: 'Everything is scary if you look at it. So you just got to live it.', source: 'Mary J. Blige' },
+	{ quote: 'Be yourself; everyone else is already taken.', source: 'Oscar Wilde' },
+	{ quote: 'The past has no power over the present moment.', source: 'Eckhart Tolle' },
+];
 
 /***
  * `getRandomQuote` function
  ***/
 const randomNumber = () => Math.floor(Math.random() * quotes.length); // not using the +1 syntax b/c using the floor()
 const getRandomQuote = () => quotes[randomNumber()];
-
 /***
  * `printQuote` function
  ***/
