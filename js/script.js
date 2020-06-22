@@ -35,13 +35,23 @@ const quotes = [
 const randomNumber = () => Math.floor(Math.random() * quotes.length); // not using the +1 syntax b/c using the floor()
 const getRandomQuote = () => quotes[randomNumber()];
 
-/***
- * `printQuote` function
- ***/
-const printQuote = () => {
+// interval
+const autoReload = () => {
+	setInterval(() => {
+		displayQuote();
+	}, 15000);
+};
+
+const getRandomColor = () => {
+	return Math.floor(Math.random() * 255) + 1;
+};
+
+const displayQuote = () => {
 	let html = '';
 	let quoteData = getRandomQuote();
-	html += `<p class="quote"> ${quoteData.quote}</p>`;
+
+	let quoteBox = document.getElementById('quote-box');
+	quoteBox.style.backgroundColor = html += `<p class="quote"> ${quoteData.quote}</p>`;
 	html += `<p class="source">${quoteData.source}`;
 	if (quoteData.citation) {
 		html += `<span> "${quoteData.citation}"</span>`;
@@ -50,7 +60,16 @@ const printQuote = () => {
 		html += `<span> (${quoteData.year})</span>`;
 	}
 	html += `</p>`;
-	document.getElementById('quote-box').innerHTML = html;
+	let body = document.querySelector('body');
+	body.style.backgroundColor = `rgb(${getRandomColor()},${getRandomColor()},${getRandomColor()})`;
+	quoteBox.innerHTML = html;
+};
+
+/***
+ * `printQuote` function
+ ***/
+const printQuote = () => {
+	autoReload();
 };
 /***
  * click event listener for the print quote button
