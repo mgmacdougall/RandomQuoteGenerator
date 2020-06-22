@@ -7,7 +7,7 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-const debugLog = (data) => console.log(data); // debugging only, remove when done
+// const debugLog = (data) => console.log(data); // debugging only, remove when done
 
 /***
  * `quotes` array
@@ -34,15 +34,27 @@ const quotes = [
  ***/
 const randomNumber = () => Math.floor(Math.random() * quotes.length); // not using the +1 syntax b/c using the floor()
 const getRandomQuote = () => quotes[randomNumber()];
-debugLog(getRandomQuote());
 
 /***
  * `printQuote` function
  ***/
-
+const printQuote = () => {
+	let html = '';
+	let quoteData = getRandomQuote();
+	html += `<p class="quote"> ${quoteData.quote}</p>`;
+	html += `<p class="source">${quoteData.source}`;
+	if (quoteData.citation) {
+		html += `<span> "${quoteData.citation}"</span>`;
+	}
+	if (quoteData.year) {
+		html += `<span> (${quoteData.year})</span>`;
+	}
+	html += `</p>`;
+	document.getElementById('quote-box').innerHTML = html;
+};
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 
-// document.getElementById('load-quote').addEventListener('click', printQuote, false);
+document.getElementById('load-quote').addEventListener('click', printQuote, false);
