@@ -19,7 +19,7 @@ const quotes = [
 		quote: 'Ask not what your country can do for you, ask what you can do for your country.',
 		source: 'John F. Kennedy',
 		citation: "John F. Kennedy's Inaugural Address",
-		year: 'January 20, 1961',
+		year: '1961',
 	},
 	{
 		quote: 'Everything good, everything magical happens between the months of June and August.',
@@ -62,11 +62,11 @@ const displayQuote = () => {
 
 	html += `<p class="source">${quoteData.source}`;
 	if (quoteData.citation) {
-		html += `<span> "${quoteData.citation}"</span>`;
+		html += `<span class="citation"> "${quoteData.citation}"</span>`;
 	}
 
 	if (quoteData.year) {
-		html += `<span> (${quoteData.year})</span>`;
+		html += `<span class="year">${quoteData.year}</span>`;
 	}
 
 	html += `</p>`;
