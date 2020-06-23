@@ -20,6 +20,7 @@ const quotes = [
 		source: 'John F. Kennedy',
 		citation: "John F. Kennedy's Inaugural Address",
 		year: '1961',
+		tag: 'Motivation',
 	},
 	{
 		quote: 'Everything good, everything magical happens between the months of June and August.',
@@ -67,6 +68,10 @@ const displayQuote = () => {
 
 	if (quoteData.year) {
 		html += `<span class="year">${quoteData.year}</span>`;
+	}
+
+	if (quoteData.tag) {
+		html += `<span style="font-style: italic;">, <a href="#" style="text-decoration: none; color:white;">${quoteData.tag}</a></span>`;
 	}
 
 	html += `</p>`;
