@@ -7,8 +7,6 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-// const debugLog = (data) => console.log(data); // debugging only, remove when done
-
 /***
  * `quotes` array
  ***/
@@ -29,38 +27,52 @@ const quotes = [
 		citation: 'The Summer I Turned Pretty',
 	},
 ];
+
 /***
  * `getRandomQuote` function
  ***/
-const randomNumber = () => Math.floor(Math.random() * quotes.length); // not using the +1 syntax b/c using the floor()
-const getRandomQuote = () => quotes[randomNumber()];
+const randomQuoteIndex = () => Math.floor(Math.random() * quotes.length);
+const getRandomQuote = () => quotes[randomQuoteIndex()];
 
-// interval
+/***
+ * `autoReload` reloads a quote at a given interval
+ */
 const autoReload = () => {
 	setInterval(() => {
 		displayQuote();
-	}, 15000);
+	}, 7000);
 };
 
+/***
+ * `getRandomColor` creates a random color value
+ */
 const getRandomColor = () => {
 	return Math.floor(Math.random() * 255) + 1;
 };
 
+/***
+ * `displayQuote` displays the quote in
+ */
 const displayQuote = () => {
 	let html = '';
 	let quoteData = getRandomQuote();
 
 	let quoteBox = document.getElementById('quote-box');
 	quoteBox.style.backgroundColor = html += `<p class="quote"> ${quoteData.quote}</p>`;
+
 	html += `<p class="source">${quoteData.source}`;
 	if (quoteData.citation) {
 		html += `<span> "${quoteData.citation}"</span>`;
 	}
+
 	if (quoteData.year) {
 		html += `<span> (${quoteData.year})</span>`;
 	}
+
 	html += `</p>`;
+
 	let body = document.querySelector('body');
+
 	body.style.backgroundColor = `rgb(${getRandomColor()},${getRandomColor()},${getRandomColor()})`;
 	quoteBox.innerHTML = html;
 };
@@ -71,6 +83,7 @@ const displayQuote = () => {
 const printQuote = () => {
 	autoReload();
 };
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
