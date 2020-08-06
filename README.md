@@ -1,2 +1,3 @@
 # a_random_quote_generator-v1
-Treehouse random quote generator
+Random Quote Generator
+DOM manipulation, Event Handling project
