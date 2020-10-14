@@ -1,12 +1,3 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// For assistance:
-// Check the "Project Resources" section of the project instructions
-// Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 /***
  * `quotes` array
  ***/
@@ -34,15 +25,6 @@ const quotes = [
  ***/
 const randomQuoteIndex = () => Math.floor(Math.random() * quotes.length);
 const getRandomQuote = () => quotes[randomQuoteIndex()];
-
-/***
- * `autoReload` reloads a quote at a given interval
- */
-const autoReload = () => {
-	setInterval(() => {
-		displayQuote();
-	}, 7000);
-};
 
 /***
  * `getRandomColor` creates a random color value
@@ -86,7 +68,7 @@ const displayQuote = () => {
  * `printQuote` function
  ***/
 const printQuote = () => {
-	autoReload();
+	displayQuote();
 };
 
 /***
