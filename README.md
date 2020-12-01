@@ -1,3 +1,3 @@
-# a_random_quote_generator-v1
+# RandomQuoteGenerator
 Random Quote Generator
 DOM manipulation, Event Handling project
